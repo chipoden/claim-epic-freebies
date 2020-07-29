@@ -18,6 +18,9 @@ jobs:
         timeout-minutes: 5 # Automatically stop after 5 minutes
 
         steps:
+            - name: Fix Epicgames Client Bug
+              run: mkdir -p .egstore
+              
             - name: Setup repo
               uses: actions/checkout@v2
               with:
@@ -30,4 +33,4 @@ jobs:
               run: yarn
 
             - name: Get Epic Freebies
-              run: yarn start ${{ secrets.USERNAME }} ${{ secrets.PASSWORD }} 0 ${{ secrets.SECRETKEY }}
+              run: yarn start ${{ secrets.USERNAME }} ${{ secrets.PASSWORD }} 0
